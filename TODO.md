@@ -1,0 +1,12 @@
+- ~~Given a file When the file name does not end with `.bs` and its lenghth is less than or equal to 3 Then output error message~~
+- ~~Given a file name When the file does not exist Then output error message~~
+- ~~Given a `.bs` file When it is invalid Then output error message~~
+- ~~Given a `.bs` file When there are more or less than 10 frames Then output error message~~
+- Given a frame (not the last one) When it does not contain a pair of numbers Then output error message
+- Given the last frame When it does not contain three numbers Then output error message
+- Given a strike When the next two rolls end Then the frame receives ten pins + a bonus of pinfall on the following two rolls
+- Given a strike When the tenth frame Then two extra rolls are given as bonus pins
+- Given a frame When less than all ten pins are knocked down Then one point is scored for each pin
+- Given a spare When the next roll ends Then the frame receives ten pins + a bonus of pinfall in the enxt roll
+- Given a spare When the tenth frame Then an extra roll is given as bonus pins
+- Given a frame When the first roll is a strike Then the next roll is skipped

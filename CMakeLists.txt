@@ -15,15 +15,20 @@ FetchContent_MakeAvailable(googletest)
 
 enable_testing()
 
+include_directories("includes")
+
 add_executable(
-	hello_test
-	hello_test.cc
+	bowling_test
+	srcs/InputValidator.cpp
+	srcs/ScoreBoard.cpp
+	srcs/ScoreCalculator.cpp
+	tests/test.cpp
 )
 
 target_link_libraries(
-	hello_test
+	bowling_test
 	GTest::gtest_main
 )
 
 include(GoogleTest)
-gtest_discover_tests(hello_test)
+gtest_discover_tests(bowling_test)
