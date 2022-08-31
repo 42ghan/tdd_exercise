@@ -1,12 +1,8 @@
 /**
  * @file InputValidator.cpp
- * @author your name (you@domain.com)
- * @brief
+ * @author ghan (ghan@student.42seoul.kr)
  * @version 0.1
  * @date 2022-08-31
- *
- * @copyright Copyright (c) 2022
- *
  */
 
 #include "InputValidator.hpp"
