@@ -20,7 +20,7 @@ include_directories("includes")
 add_executable(
 	bowling_test
 	srcs/InputValidator.cpp
-	srcs/ScoreBoard.cpp
+	# srcs/ScoreBoard.cpp
 	srcs/ScoreCalculator.cpp
 	tests/test.cpp
 )

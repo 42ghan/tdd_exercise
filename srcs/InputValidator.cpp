@@ -42,12 +42,28 @@ void InputValidator::CheckScoreSet_(std::ifstream& input_file) {
   }
 }
 
-void InputValidator::Validate(const std::string& file_name) {
+ScoreBoard InputValidator::FormatScoreSetIntoScoreBoard_() const {
+  ScoreBoard score_board;
+  for (int i = 1; i < 18; i += 2) {
+    if (score_set_[i - 1] + score_set_[i + 1] > 10)
+      throw InvalidInputException_();
+    score_board.frames.push_back(
+        std::pair<int, int>(score_set_[i - 1], score_set_[i]));
+  }
+  if (score_set_[18] + score_set_[19] > 10 ||
+      (score_set_[18] + score_set_[19] != 10 && score_set_[20]))
+    throw InvalidInputException_();
+  score_board.last.SetTriplet(score_set_[18], score_set_[19], score_set_[20]);
+  return score_board;
+}
+
+ScoreBoard InputValidator::Validate(const std::string& file_name) {
   CheckFileName_(file_name);
   std::ifstream input_file(file_name);
   if (!input_file.is_open()) throw OpenFailureException_();
   CheckScoreSet_(input_file);
   input_file.close();
+  return FormatScoreSetIntoScoreBoard_();
 }
 
 const std::vector<int>& InputValidator::GetScoreSet(void) const {

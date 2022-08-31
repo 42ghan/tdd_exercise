@@ -8,6 +8,7 @@
 
 #include <gtest/gtest.h>
 
+#include "InputValidator.hpp"
 #include "ScoreBoard.hpp"
 #include "ScoreCalculator.hpp"
 
@@ -66,9 +67,29 @@ TEST(TestScoreBoard, ParseInvalidInput) {
   } catch (std::exception& e) {
     EXPECT_EQ(e.what(), "invalid input");
   }
+  try {
+    validator.Validate("../test_input/all_ten.bs");  // Invalid input
+    ASSERT_NE(6, 6);
+  } catch (std::exception& e) {
+    EXPECT_EQ(e.what(), "invalid input");
+  }
+  try {
+    validator.Validate("../test_input/last_three_ten.bs");  // Invalid input
+    ASSERT_NE(7, 7);
+  } catch (std::exception& e) {
+    EXPECT_EQ(e.what(), "invalid input");
+  }
+  try {
+    validator.Validate("../test_input/invalid_last_num.bs");  // Invalid input
+    ASSERT_NE(7, 7);
+  } catch (std::exception& e) {
+    EXPECT_EQ(e.what(), "invalid input");
+  }
 }
 
-// TEST(TestScoreBoard, HandleValidInput) {
+// TEST(TestScoreBoard, CheckParseResult) {
+//   InputValidator validator;
+//   ScoreBoard score_board = validator.Validate("../test_input/zero.bs");
 // ScoreBoard score_board("../test_input/zero.bs");
 // try {
 //   ScoreBoard score_board("../test_input/all_ten.bs");
@@ -78,8 +99,9 @@ TEST(TestScoreBoard, ParseInvalidInput) {
 // }
 // }
 
-// TEST(TestScoreCalculator, CalculateScore) {
-//   ScoreBoard score_board("../test_input/zero.bs");
-//   ScoreCalculator score_cal(score_board);
-//   EXPECT_EQ(0, score_cal.Calculate());
-// }
+TEST(TestScoreCalculator, CalculateScore) {
+  InputValidator validator;
+  ScoreBoard score_board = validator.Validate("../test_input/zero.bs");
+  ScoreCalculator score_cal(score_board);
+  EXPECT_EQ(0, score_cal.Calculate());
+}

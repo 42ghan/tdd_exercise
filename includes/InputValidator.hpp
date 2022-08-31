@@ -20,6 +20,8 @@
 #include <sstream>
 #include <vector>
 
+#include "ScoreBoard.hpp"
+
 class InputValidator {
   class OpenFailureException_ : public std::exception {
     virtual const char* what() const throw() { return "cannot open file"; }
@@ -38,10 +40,11 @@ class InputValidator {
 
   void CheckFileName_(const std::string& file_name) const;
   void CheckScoreSet_(std::ifstream& input_file);
+  ScoreBoard FormatScoreSetIntoScoreBoard_(void) const;
 
  public:
   InputValidator(void);
-  void Validate(const std::string& file_name);
+  ScoreBoard Validate(const std::string& file_name);
   const std::vector<int>& GetScoreSet(void) const;
 };
 

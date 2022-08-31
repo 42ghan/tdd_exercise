@@ -10,3 +10,4 @@
 - Given a spare When the next roll ends Then the frame receives ten pins + a bonus of pinfall in the enxt roll
 - Given a spare When the tenth frame Then an extra roll is given as bonus pins
 - Given a frame When the first roll is a strike Then the next roll is skipped
+- Given the last frame When the first two rolls of the frame add up to 10 Then the third roll is played
