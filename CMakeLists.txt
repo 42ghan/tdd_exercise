@@ -20,9 +20,15 @@ include_directories("includes")
 add_executable(
 	bowling_test
 	srcs/InputValidator.cpp
-	# srcs/ScoreBoard.cpp
 	srcs/ScoreCalculator.cpp
 	tests/test.cpp
+)
+
+add_executable(
+	bowling_score
+	srcs/InputValidator.cpp
+	srcs/ScoreCalculator.cpp
+	main.cpp
 )
 
 target_link_libraries(
