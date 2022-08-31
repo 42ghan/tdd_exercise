@@ -11,7 +11,4 @@
 
 #include "ScoreBoard.hpp"
 
-ScoreBoard::ScoreBoard(const std::string& file_name) {
-  InputValidator validator(file_name);
-  validator.Validate();
-}
+ScoreBoard::ScoreBoard(const std::string& file_name) {}

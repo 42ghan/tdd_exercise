@@ -11,12 +11,11 @@
 
 #include "InputValidator.hpp"
 
-InputValidator::InputValidator(const std::string& file_name)
-    : file_name_(file_name), score_set_(std::vector<int>(21)) {}
+InputValidator::InputValidator(void) : score_set_(std::vector<int>(21)) {}
 
-void InputValidator::CheckFileName_(void) const {
-  if (file_name_.size() <= 3 ||
-      file_name_.compare(file_name_.size() - 3, 3, ".bs"))
+void InputValidator::CheckFileName_(const std::string& file_name) const {
+  if (file_name.size() <= 3 ||
+      file_name.compare(file_name.size() - 3, 3, ".bs"))
     throw OpenFailureException_();
 }
 
@@ -43,9 +42,9 @@ void InputValidator::CheckScoreSet_(std::ifstream& input_file) {
   }
 }
 
-void InputValidator::Validate(void) {
-  CheckFileName_();
-  std::ifstream input_file(file_name_);
+void InputValidator::Validate(const std::string& file_name) {
+  CheckFileName_(file_name);
+  std::ifstream input_file(file_name);
   if (!input_file.is_open()) throw OpenFailureException_();
   CheckScoreSet_(input_file);
   input_file.close();

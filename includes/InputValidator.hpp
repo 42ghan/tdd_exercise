@@ -34,15 +34,14 @@ class InputValidator {
   };
 
  private:
-  const std::string file_name_;
   std::vector<int> score_set_;
 
-  void CheckFileName_(void) const;
+  void CheckFileName_(const std::string& file_name) const;
   void CheckScoreSet_(std::ifstream& input_file);
 
  public:
-  InputValidator(const std::string& file_name);
-  void Validate(void);
+  InputValidator(void);
+  void Validate(const std::string& file_name);
   const std::vector<int>& GetScoreSet(void) const;
 };
 
