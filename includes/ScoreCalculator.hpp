@@ -16,8 +16,8 @@
 
 class ScoreCalculator {
  public:
-  ScoreCalculator(const ScoreBoard& score_board);
-  unsigned int Calculate(void);
+  ScoreCalculator(void);
+  unsigned int Calculate(ScoreBoard score_board);
 };
 
 #endif  // SCORE_CALCULATOR_HPP

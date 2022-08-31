@@ -87,21 +87,11 @@ TEST(TestScoreBoard, ParseInvalidInput) {
   }
 }
 
-// TEST(TestScoreBoard, CheckParseResult) {
-//   InputValidator validator;
-//   ScoreBoard score_board = validator.Validate("../test_input/zero.bs");
-// ScoreBoard score_board("../test_input/zero.bs");
-// try {
-//   ScoreBoard score_board("../test_input/all_ten.bs");
-//   ASSERT_NE(1, 1);
-// } catch (std::exception& e) {
-//   EXPECT_EQ(e.what(), "invalid input");
-// }
-// }
-
 TEST(TestScoreCalculator, CalculateScore) {
   InputValidator validator;
-  ScoreBoard score_board = validator.Validate("../test_input/zero.bs");
-  ScoreCalculator score_cal(score_board);
-  EXPECT_EQ(0, score_cal.Calculate());
+  ScoreCalculator score_cal;
+  EXPECT_EQ(0,
+            score_cal.Calculate(validator.Validate("../test_input/zero.bs")));
+  EXPECT_EQ(61,
+            score_cal.Calculate(validator.Validate("../test_input/no_ten.bs")));
 }

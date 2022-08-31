@@ -45,8 +45,7 @@ void InputValidator::CheckScoreSet_(std::ifstream& input_file) {
 ScoreBoard InputValidator::FormatScoreSetIntoScoreBoard_() const {
   ScoreBoard score_board;
   for (int i = 1; i < 18; i += 2) {
-    if (score_set_[i - 1] + score_set_[i + 1] > 10)
-      throw InvalidInputException_();
+    if (score_set_[i - 1] + score_set_[i] > 10) throw InvalidInputException_();
     score_board.frames.push_back(
         std::pair<int, int>(score_set_[i - 1], score_set_[i]));
   }
