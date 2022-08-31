@@ -14,6 +14,10 @@
 
 #include "ScoreBoard.hpp"
 
+#define NORMAL 0
+#define STRIKE 1
+#define SPARE 2
+
 class ScoreCalculator {
  public:
   ScoreCalculator(void);

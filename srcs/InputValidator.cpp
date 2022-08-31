@@ -49,8 +49,8 @@ ScoreBoard InputValidator::FormatScoreSetIntoScoreBoard_() const {
     score_board.frames.push_back(
         std::pair<int, int>(score_set_[i - 1], score_set_[i]));
   }
-  if (score_set_[18] + score_set_[19] > 10 ||
-      (score_set_[18] + score_set_[19] != 10 && score_set_[20]))
+  if (score_set_[20] &&
+      !(score_set_[18] == 10 || score_set_[18] + score_set_[19] == 10))
     throw InvalidInputException_();
   score_board.last.SetTriplet(score_set_[18], score_set_[19], score_set_[20]);
   return score_board;

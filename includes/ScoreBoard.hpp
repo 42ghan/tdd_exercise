@@ -25,6 +25,8 @@ struct triplet {
     second = y;
     third = z;
   }
+
+  int Sum(void) const { return first + second + third; }
 };
 
 struct ScoreBoard {

@@ -74,12 +74,6 @@ TEST(TestScoreBoard, ParseInvalidInput) {
     EXPECT_EQ(e.what(), "invalid input");
   }
   try {
-    validator.Validate("../test_input/last_three_ten.bs");  // Invalid input
-    ASSERT_NE(7, 7);
-  } catch (std::exception& e) {
-    EXPECT_EQ(e.what(), "invalid input");
-  }
-  try {
     validator.Validate("../test_input/invalid_last_num.bs");  // Invalid input
     ASSERT_NE(7, 7);
   } catch (std::exception& e) {
@@ -94,4 +88,12 @@ TEST(TestScoreCalculator, CalculateScore) {
             score_cal.Calculate(validator.Validate("../test_input/zero.bs")));
   EXPECT_EQ(61,
             score_cal.Calculate(validator.Validate("../test_input/no_ten.bs")));
+  EXPECT_EQ(58,
+            score_cal.Calculate(validator.Validate("../test_input/strike.bs")));
+  EXPECT_EQ(24,
+            score_cal.Calculate(validator.Validate("../test_input/spare.bs")));
+  EXPECT_EQ(300, score_cal.Calculate(
+                     validator.Validate("../test_input/last_three_ten.bs")));
+  EXPECT_EQ(20, score_cal.Calculate(
+                    validator.Validate("../test_input/second_last_spare.bs")));
 }
